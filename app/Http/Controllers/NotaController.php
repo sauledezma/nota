@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Nota;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class NotaController extends Controller
 {
@@ -16,8 +16,8 @@ class NotaController extends Controller
      */
     public function index()
     {
-        $notas=Nota::where("users_id",Auth::id())-> get();
-
+       
+        $notas = Nota::get();
         return Inertia::render("Notas/Index",[
             "notas"=>$notas
         ]);
@@ -45,6 +45,7 @@ class NotaController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             "titulo"=>"required",
             "contenido"=>"required",
@@ -53,9 +54,10 @@ class NotaController extends Controller
         $nota = new Nota;
         $nota->titulo = $request->titulo;
         $nota->contenido = $request->contenido;
-        $nota->user_id= Auth::id();
+        $nota->user_id = Auth::id();
         $nota->save();
-        return redirect()->route("notas.index")->with("status","Se creo una nota");
+        
+        return redirect()->route('notas.index')->with('status', 'Se creó la nota correctamente');
     }
 
     /**
