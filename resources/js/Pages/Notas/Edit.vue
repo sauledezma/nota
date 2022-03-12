@@ -2,7 +2,7 @@
     <app-layout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Editar nota
+                Editar 
             </h2>
         </template>
 
@@ -16,6 +16,8 @@
                                 Título
                             </label>
 
+
+
                             <textarea 
                                 class="form-input w-full rounded-md shadow-sm"
                                 v-model="form.titulo"
@@ -24,6 +26,14 @@
                             <label class="block font-medium text-sm text-gray-700">
                                 Contenido
                             </label>
+                             <select class="form-control" id="exampleFormControlTextarea1" rows="1"
+                              v-model="form.categoria"
+                             required >
+                            <option value="">Seleccionar</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                            </select>
 
                             <textarea 
                                 class="form-input w-full rounded-md shadow-sm"

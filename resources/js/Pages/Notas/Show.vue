@@ -2,7 +2,7 @@
     <app-layout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Ver Noticias
+                Ver 
             </h2>
         </template>
 
@@ -15,7 +15,9 @@
                  </inertia-link>
                                     <hr>    
                 <p>Titulo</p>
-                <p> {{nota.titulo}}</p>       
+                <p> {{nota.titulo}}</p>
+                <p>Ctegoria</p>
+                <p> {{nota.categoria}}</p>         
                 <p>Contenido</p>
                 <p> {{nota.contenido}}</p>     
                      

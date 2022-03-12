@@ -10,6 +10,7 @@ class Nota extends Model
     use HasFactory;
     protected $fillable = [
         "titulo",
-        "contenido"
+        "contenido",
+        "categoria",
     ];
 }

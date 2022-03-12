@@ -14,19 +14,34 @@
                       
                      <form @submit.prevent="enviar">
 
-                        <label class="block font-medium text-m text-blue-700 form-label">
+                        <label class="block font-medium text-m text-blue-700 form-label"
+                        required>
                             Titulo
                         </label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"
                         v-model="form.titulo"
+                        required
                         ></textarea>
-
                         <label class="block font-medium text-sm text-blue-700">
                             Contenido
                         </label>
+                        <label class="block font-medium text-sm text-blue-700">
+                            Categoria
+                        </label>
+
+                        <select class="form-control" id="exampleFormControlTextarea1" rows="1"
+                        v-model="form.categoria"
+                        required >
+                            <option value="">Seleccionar</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                        </select>
+
                         <textarea class="form-input w-full rounded-md shadow-sm"
                         v-model="form.contenido"
                         rows="5"
+                        required
                         ></textarea>
 
                        <button 
@@ -56,7 +71,8 @@
             return{
                 form:{
                  titulo:"",
-                 contenido: ""  
+                 contenido: "",
+                 categoria: "", 
                 }
             
 
