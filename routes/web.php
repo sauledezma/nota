@@ -4,7 +4,9 @@ use App\Http\Controllers\NotaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use App\Models\Nota;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +28,16 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    $total_noticias = Nota::select(DB::raw('categoria, count(id) as total'))
+    ->where('users_id',Auth::id())
+    ->orderBy('total', 'desc')
+    ->groupBy('categoria')
+    ->get();
+    
+    return Inertia::render('Dashboard', [
+'total_noticias' => $total_noticias
+    ]);
+
 })->name('dashboard');
 
 Route::resource("notas",NotaController::class);

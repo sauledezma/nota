@@ -41,10 +41,10 @@
                                     <inertia-link :href="route('notas.show',nota.id)" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">
                                         Ver
                                     </inertia-link>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                 </td>
+                               </tr>
+                           </tbody>
+                        </table>
                         </div>
                     </div>
                 </div>

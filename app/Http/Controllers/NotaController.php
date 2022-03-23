@@ -61,7 +61,7 @@ class NotaController extends Controller
         $nota->titulo = $request->titulo;
         $nota->contenido = $request->contenido;
         $nota->categoria = $request->categoria;
-        $nota->user_id = Auth::id();
+        $nota->users_id = Auth::id();
         $nota->save();
         
         return redirect()->route('notas.index')->with('status', 'Se creó la nota correctamente');
